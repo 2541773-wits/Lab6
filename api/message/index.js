@@ -1,5 +1,6 @@
 module.exports = async function (context, req) {
     const { method } = req.method;
+    const fs = require('fs');
     switch (method) {
         case 'GET':
             await getCars(context);
@@ -36,6 +37,15 @@ async function addCar(context, newCar) {
     context.res = {
         body: newCar
     };
+
+    // Write updated cars array to cars.json
+  try {
+    const data = JSON.stringify(cars, null, 2);  // Stringify with indentation
+    await fs.promises.writeFile('./cars.json', data);
+  } catch (error) {
+    console.error('Error writing to cars.json:', error);
+    // Handle the error appropriately (e.g., return error response)
+  }
 }
 
 async function updateCar(context, id, updatedCar) {
