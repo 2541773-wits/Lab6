@@ -14,10 +14,11 @@ module.exports = async function (context, req) {
             await deleteCar(context, req.params.id);
             break;
         default:
-            context.res = {
-                status: 405,
-                body: 'Method Not Allowed'
-            };
+            await getCars(context);
+            //context.res = {
+            //    status: 405,
+            //    body: 'Method Not Allowed'
+            //};
             break;
     }
 };
