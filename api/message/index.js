@@ -35,7 +35,7 @@ async function getCars(context) {
 async function addCar(context, newCar) {
     cars.push(newCar);
     context.res = {
-        body: newCar
+        body: cars
     };
 
     // Write updated cars array to cars.json
