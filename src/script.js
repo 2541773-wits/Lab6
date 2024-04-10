@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const carList = document.getElementById('carList');
     cars = [];
     loadCarsBtn.addEventListener('click', () => {
-        fetch('/api/message/cars')
+        fetch('/api/message')
             .then(response => response.json())
             .then(data => {
                 cars = data;
