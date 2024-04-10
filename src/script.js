@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 function addCar(newCar) {
-    fetch('/api/message/cars', {
+    fetch('/api/message', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ carForm.addEventListener('submit', event => {
 // Function to remove a car
 function removeCar(index) {
     const carId = cars[index].id;
-    fetch(`/api/message/cars/${carId}`, {
+    fetch(`/api/message/${carId}`, {
         method: 'DELETE'
     })
         .then(response => response.json())
